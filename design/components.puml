@@ -1,0 +1,21 @@
+@startuml
+
+[IdP Implementor]
+
+[Blockchain API]
+[Blockchain]
+[Blockchain API] .. [Blockchain] : connects with
+
+[IdP Implementor] .. [Blockchain API] : ID data PUT
+
+[DataStore]
+[DataStore API]
+[DataStore API] .. [DataStore] : allows access to
+
+[PDM UI]
+[PDM UI] .. [Blockchain API] : ID data GET
+[PDM UI] .. [Blockchain API] : subsnap GET and PUT
+[PDM UI] .. [Blockchain API] : authorization GET and PUT
+[PDM UI] .. [DataStore API] : subsnap GET and PUT
+
+@enduml
