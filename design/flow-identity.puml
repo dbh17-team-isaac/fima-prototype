@@ -1,0 +1,16 @@
+@startuml
+
+Person1 -> "P1 Identity UI": start ID request
+"P1 Identity UI" -> "P2 Identity UI": request via NFC
+"P2 Identity UI" -> Blockchain: find ID in contract
+Blockchain -> "P2 Identity UI": public key
+"P2 Identity UI" -> "P2 Identity UI": create identity proof
+"P2 Identity UI" -> "P1 Identity UI": proof via NFC
+"P1 Identity UI" -> Blockchain: find ID in contract
+Blockchain -> "P1 Identity UI": public key
+"P1 Identity UI" -> "P1 Identity UI": create identity proof
+"P1 Identity UI" -> "P2 Identity UI": proof via NFC
+"P1 Identity UI" -> Person1: proof
+"P2 Identity UI" -> Person2: proof
+
+@enduml
