@@ -2,14 +2,27 @@
 
 Person1 -> "P1 Identity UI": start ID request
 "P1 Identity UI" -> "P2 Identity UI": request via NFC
-"P2 Identity UI" -> Blockchain: find ID in contract
-Blockchain -> "P2 Identity UI": public key
-"P2 Identity UI" -> "P2 Identity UI": create identity proof
-"P2 Identity UI" -> "P1 Identity UI": proof via NFC
-"P1 Identity UI" -> Blockchain: find ID in contract
-Blockchain -> "P1 Identity UI": public key
-"P1 Identity UI" -> "P1 Identity UI": create identity proof
-"P1 Identity UI" -> "P2 Identity UI": proof via NFC
+
+group Verify identity existence
+    "P2 Identity UI" -> Blockchain: find ID in contract
+    Blockchain -> "P2 Identity UI": public key
+end
+
+group Proof identity P2 to P1
+    "P2 Identity UI" -> "P2 Identity UI": create identity proof
+    "P2 Identity UI" -> "P1 Identity UI": proof via NFC
+end
+
+group Verify identity existence
+    "P1 Identity UI" -> Blockchain: find ID in contract
+    Blockchain -> "P1 Identity UI": public key
+end
+
+group Proof identity P1 to P2
+    "P1 Identity UI" -> "P1 Identity UI": create identity proof
+    "P1 Identity UI" -> "P2 Identity UI": proof via NFC
+end
+
 "P1 Identity UI" -> Person1: proof
 "P2 Identity UI" -> Person2: proof
 
