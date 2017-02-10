@@ -1,0 +1,29 @@
+@startuml
+
+Person1 -> "P1 PersonalData UI": create subsnap with field birthDate
+note left: Identity of other\nparty is known
+
+"P1 PersonalData UI" -> "P1 PersonalData UI": create encrypted subsnap
+
+"P1 PersonalData UI" -> "DataStore API": store subsnap
+"DataStore API" -> "P1 PersonalData UI": subsnap UUID
+
+"P1 PersonalData UI" -> "P1 PersonalData UI": create encrypted authorization
+
+"P1 PersonalData UI" -> "Blockchain": register authorization for subsnap
+"Blockchain" -> "P2 PersonalData UI": authorization created
+note left: Blockchain event ->
+
+"P2 PersonalData UI" -> "P2 PersonalData UI": decrypt authorization
+
+"P2 PersonalData UI" -> "Blockchain": request authorization details
+"Blockchain" -> "P2 PersonalData UI": authorization details
+
+"P2 PersonalData UI" -> "DataStore API": get subsnap
+"DataStore API" -> "P2 PersonalData UI": encrypted subsnap
+
+"P2 PersonalData UI" -> "P2 PersonalData UI": decrypt subsnap
+
+"P2 PersonalData UI" -> Person2: show subsnap with birthDate
+
+@enduml
