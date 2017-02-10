@@ -1,0 +1,11 @@
+version: "2"
+services:
+  datastore-api:
+    build: datastore-api
+    depends_on:
+      - db
+  db:
+    image: mysql:5
+    environment:
+      - MYSQL_ROOT_PASSWORD=dbh17
+      - MYSQL_DATABASE=fima

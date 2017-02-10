@@ -1,0 +1,18 @@
+# Mark the commands below to be run as a batch
+batch
+
+# Add MySQL driver
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql.jdbc,driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
+
+# Add the datasource
+data-source add --name=FimaDS --driver-name=mysql --jndi-name=java:jboss/datasources/FimaDS --connection-url=jdbc:mysql://db/fima?characterEncoding=UTF-8&useSSL=false --user-name=root --password=dbh17 --max-pool-size=50 --enabled=true
+
+# Configure port numbers
+/socket-binding-group=standard-sockets/socket-binding=ajp:write-attribute(name="port", value="${jboss.ajp.port:8009}")
+/socket-binding-group=standard-sockets/socket-binding=http:write-attribute(name="port", value="${jboss.http.port:8080}")
+
+# Add AJP listener
+/subsystem=undertow/server=default-server/ajp-listener=ajp:add(socket-binding=ajp, scheme=http, enabled=true)
+
+# Execute the batch
+run-batch
