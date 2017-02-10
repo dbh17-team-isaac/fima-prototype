@@ -21,9 +21,26 @@ produces:
 # API endpoints
 ##
 paths:
+  /subsnap:
+    post:
+      summary: "Store a subsnap"
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/StoreSubsnapRequest"
+      responses:
+        "200":
+          description: "A new subsnap was created"
+          schema:
+            type: "object"
+            properties:
+              subsnapID:
+                type: "string"
   /subsnap/{id}:
     get:
-      summary: "Bla"
+      summary: "Retrieve a subsnap"
       parameters:
         - name: id
           in: path
@@ -55,3 +72,13 @@ responses:
           type: "string"
         message:
           type: "string"
+
+##
+# Structures
+##
+definitions:
+  StoreSubsnapRequest:
+    type: "object"
+    properties:
+      data:
+        type: "string"
