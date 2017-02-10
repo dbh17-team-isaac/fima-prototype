@@ -2,6 +2,10 @@ version: "2"
 services:
   datastore-api:
     build: datastore-api
+    ports:
+      - 8080:8080
+    volumes:
+      - ./datastore-api/docker/deployments:/opt/jboss/wildfly/standalone/deployments
     depends_on:
       - db
   db:
@@ -9,3 +13,5 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=dbh17
       - MYSQL_DATABASE=fima
+    ports:
+      - 3306:3306
