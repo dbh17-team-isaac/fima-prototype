@@ -1,0 +1,57 @@
+swagger: "2.0"
+
+info:
+  description: "This Swagger spec describes the functionality offered by the\
+    DataStore API within the FIMA landscape."
+  version: "1.0.0"
+  title: "FIMA DataStore API"
+  contact:
+    name: "ISAAC"
+    email: "info@isaac.nl"
+host: "datastore.fima.local"
+basePath: "/api/v1"
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+
+##
+# API endpoints
+##
+paths:
+  /subsnap/{id}:
+    get:
+      summary: "Bla"
+      parameters:
+        - name: id
+          in: path
+          type: "string"
+          required: true
+      responses:
+        "200":
+          description: "Subsnap was found and data is returned"
+          schema:
+            type: "object"
+            properties:
+              subsnapID:
+                type: "string"
+              data:
+                type: "string"
+        "404":
+          $ref: "#/responses/NotFoundError"
+
+##
+# Generic responses
+##
+responses:
+  NotFoundError:
+    description: "Entity not found"
+    schema:
+      type: "object"
+      properties:
+        httpError:
+          type: "string"
+        message:
+          type: "string"
