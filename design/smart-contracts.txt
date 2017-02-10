@@ -1,0 +1,10 @@
+Required smart contracts
+
+1. Identity smart contract
+   - Contract per IdP
+   - List of verified public keys (addresses?)
+
+2. Authorization smart contract
+   - Encrypted subsnap ID
+   - Recipient public key (address?)
+   - Event: authorizationCreated(address recipient, byte[] subsnap ID)
