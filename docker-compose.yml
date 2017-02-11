@@ -1,6 +1,6 @@
 version: "2"
 services:
-  datastore-api:
+  datastore_api:
     build: datastore-api
     ports:
       - 8180:8080
