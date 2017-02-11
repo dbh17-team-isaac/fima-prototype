@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Subsnap {
@@ -14,11 +15,13 @@ public class Subsnap {
 	private long id;
 	
 	private String subsnapID;
-	private String data;
+	
+	@Lob
+	private byte[] data;
 	
 	public Subsnap() {}
 	
-	public Subsnap(String data) {
+	public Subsnap(byte[] data) {
 		this.data = data;
 		this.subsnapID = UUID.randomUUID().toString();
 	}
@@ -35,10 +38,10 @@ public class Subsnap {
 	public void setSubsnapID(String subsnapID) {
 		this.subsnapID = subsnapID;
 	}
-	public String getData() {
+	public byte[] getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(byte[] data) {
 		this.data = data;
 	}
 }

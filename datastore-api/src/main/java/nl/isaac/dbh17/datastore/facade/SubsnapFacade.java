@@ -18,8 +18,7 @@ public class SubsnapFacade {
 	 * @param data The encrypted blob
 	 * @return The ID of the subsnap in the datastore
 	 */
-	public String storeSubsnap(String data) {
-		// FIXME validation
+	public String storeSubsnap(byte[] data) {
 		Subsnap subsnap = dao.storeSubsnap(data);
 		
 		return subsnap.getSubsnapID();

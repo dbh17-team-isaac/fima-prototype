@@ -27,6 +27,7 @@ paths:
       parameters:
         - in: body
           name: body
+          description: Base64 encoded string
           required: true
           schema:
             $ref: "#/definitions/StoreSubsnapRequest"
