@@ -7,18 +7,32 @@ const Web3 = require('web3');
 // Configuration
 var config = {
     listenPort: 8080,
-    parityUrl: "http://blockchain:8545"
+    parityUrl: "http://blockchain:8545",
+    websocketPort: 3000
 };
 
-const app = express();
-app.use(bodyParser.json());
+// --------------
+// HTTP interface
+// --------------
+
+const httpApp = express();
+httpApp.use(bodyParser.json());
+
+// Serve static files from public/
+httpApp.use(express.static('public'));
+
+// Listen on specific port
+httpApp.listen(config.listenPort);
+
+// -------------------
+// Websocket interface
+// -------------------
+
+var wsApp = express();
+var expressWs = require('express-ws')(wsApp);
+
+wsApp.listen(config.websocketPort);
 
 // Enable API
 var api = require('./lib/api.js');
-api(app);
-
-// Listen on specific port
-app.listen(config.listenPort);
-
-// Serve static files from public/
-app.use(express.static('public'));
+api(httpApp, wsApp);

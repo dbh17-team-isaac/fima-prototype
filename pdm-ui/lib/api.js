@@ -1,7 +1,7 @@
 /**
  * PDM API endpoint implementations.
  */
-module.exports = function(app) {
+module.exports = function(app, wsApp) {
     var stubs = require('./api-stubs.js');
     
     // Send anti-caching headers for all API endpoints
@@ -34,6 +34,14 @@ module.exports = function(app) {
         var response = stubs.getAuthorizationsForIdentity(identityId);
         
         res.json(response);
+    });
+
+    // API: events websocket
+    wsApp.ws('/api/v1/identity/:identityId/events', function(ws, req) {
+        var identityId = req.params.identityId;
+        ws.on('message', function(msg) {
+            ws.send(msg + ' response!');
+        });
     });
 
     // API: retrieve identity requests
