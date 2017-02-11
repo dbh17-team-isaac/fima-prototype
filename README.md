@@ -21,6 +21,7 @@ FIMA uses the following open source software:
 
 * Docker
 * Ethereum Parity
+* Gulp
 * JBoss WildFly
 * MySQL
 * NodeJS
