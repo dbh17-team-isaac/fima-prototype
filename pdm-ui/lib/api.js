@@ -3,6 +3,14 @@
  */
 module.exports = function(app) {
     var stubs = require('./api-stubs.js');
+    
+    // Send anti-caching headers for all API endpoints
+    app.get('/api/v1/*', function(req, res, next) {
+        res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+        res.set('Pragma', 'no-cache');
+        res.set('Expires', '0');
+        next();
+    });
 
     // API: retrieve identity attributes
     app.get('/api/v1/identity/:identityId/attributes', function(req, res) {
@@ -41,7 +49,7 @@ module.exports = function(app) {
         res.json(response);
     });
 
-    // API: request authorization
+    // API: create request for authorization
     app.post('/api/v1/request', function(req, res) {
         var askIdentityId = req.body.askIdentityId;
         var targetIdentityId = req.body.targetIdentityId;
