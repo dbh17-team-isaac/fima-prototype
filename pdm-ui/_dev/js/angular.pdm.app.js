@@ -4,7 +4,8 @@ var identityId = "12345"
 
 // Global functionality
 function resetStubs() {
-    console.log('yeah');
-    location.reload();
+    var $http = angular.injector(["ng"]).get("$http");
+    $http.post('/api/v1/stubs/reset').then(function() {
+        location.reload();
+    });
 }
-
