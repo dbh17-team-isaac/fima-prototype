@@ -1,9 +1,17 @@
+a, .btn {
+    color: $colorlinks;
+
+    &:hover, &:active {
+        color:  $colorlinks-hl;
+    }
+}
+
 header {
-    border-bottom:1px solid #009DDC;
+    border-bottom:1px solid $color-header-bg;
     position:fixed;
     height: $sticky-header-height-xs;
     width:100%;
-    background-color: #009DDC;;
+    background-color: $color-header-bg;
     color:#fff;
     z-index: $zindex-header;
 
@@ -13,21 +21,28 @@ header {
         width:calc(100% - 100px);
         top:0;
         left:50px;
-        > h1 {
-            margin:0;
-            font-size:18px;
-            font-weight: bold;
-            text-align: center;
-            line-height: $sticky-header-height-xs;
-            white-space: nowrap;
-            color:#fff;
+        margin:0;
+        font-size:36px;
+        font-weight: bold;
+        text-align: center;
+        line-height: $sticky-header-height-xs;
+        white-space: nowrap;
+        color:#fff;
+
+        .caption {
+            font-weight: normal;
+            margin-left: 1em;
+            font-size:30px;
+            font-family: 'Oleo Script Swash Caps', sans-serif;
+            text-transform: lowercase;
         }
     }
 
-    .btn {
+    a, .btn {
         margin:11px 9px 0 0;
         border-color:transparent;
         background-color: transparent;
+
         &:hover, &:active {
             border-color:transparent;
             background-color: transparent;

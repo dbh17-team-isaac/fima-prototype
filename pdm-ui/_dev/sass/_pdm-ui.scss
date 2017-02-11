@@ -1,5 +1,5 @@
 body {
-    background-color: #F5F5F5;
+    background-color: $color-page-bg;
     font-family: "Open Sans", Arial, Helvetica, sans-serif
 }
 
@@ -26,9 +26,19 @@ div .read-attribute {
     height: 30px;
 }
 
+h1, h2, h3,  h4, h5, h6 {
+    font-weight: normal;
+    font-family: 'Oleo Script Swash Caps', sans-serif;
+    text-transform: lowercase;
+    margin-left: 0;
+}
+
 .row-menu {
-    border-bottom: 1px solid lightgray;
-    height: 38px;
+    border-bottom: 1px solid gray;
+    a {
+        text-transform: uppercase;
+        padding: 1em 1.5em 1em 0;
+    }
 }
 
 .text-success {
