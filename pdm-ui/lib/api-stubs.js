@@ -3,7 +3,10 @@
  */
 module.exports = {
     confirmRequest: function(identityId, requestId) {
-        return {};
+        return {
+            result: "success",
+            requestId: requestId
+        };
     },
 
     createRequest: function(askIdentityId, targetIdentityId, requestFields) {
@@ -46,7 +49,27 @@ module.exports = {
     },
 
     getAuthorizationsForIdentity: function(identityId) {
-        return {};
+        return {
+            authorizations: [
+                {
+                    fromIdentity: {
+                        identityId: 999,
+                        description: "Jan Jansen"
+                    },
+                    subsnapId: "2d64dab5-4e5f-46ec-8613-3b18c099a5e9",
+                    attributes: [
+                        {
+                            field: {
+                                UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
+                                type: "string",
+                                caption: "Birth date"
+                            },
+                            value: "1987-06-28"
+                        }
+                    ]
+                }
+            ]
+        };
     },
 
     getRequestsForIdentity: function(identityId) {
