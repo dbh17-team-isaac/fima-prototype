@@ -16,8 +16,7 @@ var js_src = [
     'node_modules/angular/angular.min.js',
     'node_modules/bootstrap/js/bootstrap.min.js',
     'node_modules/fastclick/lib/fastclick.js',
-    source + '/js/utility.js',
-    source + '/js/angular.pdm-ui.js'
+    source + '/js/*.js'
 ]
 
 var assets_src = [
