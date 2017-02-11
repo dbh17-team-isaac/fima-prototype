@@ -9,6 +9,9 @@ if (!sessionStorage.getItem('PDM-IdentityId')) {
     sessionStorage.setItem('PDM-TargetIdentityId', targetIdentityId);
 }
 
+// Prototype styling
+document.body.className += ' identity-' + getIdentityId();
+
 // Global functionality
 function getIdentityId() {
     return sessionStorage.getItem('PDM-IdentityId');
