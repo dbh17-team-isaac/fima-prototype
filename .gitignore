@@ -4,5 +4,5 @@ target/
 .project
 .classpath
 datastore-api/docker/deployments
-pdm-ui/web/
+pdm-ui/public/
 node_modules/
