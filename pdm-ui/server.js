@@ -21,9 +21,6 @@ httpApp.use(bodyParser.json());
 // Serve static files from public/
 httpApp.use(express.static('public'));
 
-// Listen on specific port
-httpApp.listen(config.listenPort);
-
 // -------------------
 // Websocket interface
 // -------------------
@@ -31,8 +28,10 @@ httpApp.listen(config.listenPort);
 var wsApp = express();
 var expressWs = require('express-ws')(wsApp);
 
-wsApp.listen(config.websocketPort);
-
 // Enable API
 var api = require('./lib/api.js');
 api(httpApp, wsApp);
+
+// Listen on configured ports
+httpApp.listen(config.listenPort);
+wsApp.listen(config.websocketPort);

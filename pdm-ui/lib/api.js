@@ -7,7 +7,10 @@ module.exports = function(app, wsApp) {
 
     // Websocket send helper
     function sendWS(identityId, msg) {
+        identityId += '';
+
         if (identityId in wsByIdentity) {
+            console.log('Notifying identity ' + identityId + ' via WS');
             wsByIdentity[identityId].send(msg);
         }
     }
@@ -46,7 +49,8 @@ module.exports = function(app, wsApp) {
 
     // API: events websocket
     wsApp.ws('/api/v1/identity/:identityId/events', function(ws, req) {
-        var identityId = req.params.identityId;
+        var identityId = req.params.identityId + '';
+        console.log('New webservice connection for identity: ' + identityId);
         wsByIdentity[identityId] = ws;
     });
 

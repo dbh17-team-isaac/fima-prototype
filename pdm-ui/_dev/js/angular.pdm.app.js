@@ -12,6 +12,24 @@ if (!sessionStorage.getItem('PDM-IdentityId')) {
 // Prototype styling
 document.body.className += ' identity-' + getIdentityId();
 
+// Start websocket connection to listen for events
+var ws = new WebSocket('ws://localhost:3000/api/v1/identity/' + getIdentityId() + '/events');
+ws.addEventListener('message', function(msg) {
+    console.log(msg);
+    var eventName = msg.data;
+    console.log('Incoming event: ' + eventName);
+    switch (eventName) {
+        case 'AuthorizationCreated':
+            // TODO
+            break;
+        case 'RequestCreated':
+            // TODO
+            break;
+        default:
+            throw new Error('Unsupported event: ' + eventName);
+    }
+});
+
 // Global functionality
 function getIdentityId() {
     return sessionStorage.getItem('PDM-IdentityId');
