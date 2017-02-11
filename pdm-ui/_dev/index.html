@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="global/css/base.css"/>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
 	</head>
 	<body ng-app="pdm" ng-controller="pdmPersonalDataCtrl">
 		<div id="content" class="offcanvas-content clearfix">
@@ -23,7 +22,8 @@
 			<div class="row row-menu">
 				<a class="btn" href="/index.html">Personal data</a>
 				<a class="btn" href="/request-data.html">Request data</a>
-				<a class="btn" href="/authorize-request.html">Autorize request</a>
+				<a class="btn" href="/authorize-request.html">Authorize request</a>
+				<a class="btn pull-right" ng-click="resetStubs()">Reset</a>
 			</div>
 			<h3>Personal data</h3>
 			<div class="row" ng-repeat="attribute in attributes">
@@ -59,3 +59,4 @@
 		<script src="global/js/script.js"></script>
 	</body>
 </html>
+

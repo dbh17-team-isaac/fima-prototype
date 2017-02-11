@@ -14,4 +14,7 @@ angular.module('pdm').controller('pdmPersonalDataCtrl', ['$scope', '$http', func
         // TODO save
         $scope.editMode = false;
     }
+
+    // Global functionality
+    $scope.resetStubs = resetStubs;
 }]);
