@@ -1,11 +1,11 @@
-id,full_name,birthplace,dob,role
-1,Emma Post,Leeuwarden,1981-07-10,granter
-2,Julia Kuiper,Amersfoort,1978-10-14,granter
-3,Sophie Veenstra,Nijmegen,1954-02-22,granter
-4,Lotte Hoekstra,Doetinchem,1962-05-11,granter
-5,Lisa Maas,Tilburg,1964-04-10,granter
-6,Daan Verhoeven,Zoetermeer,1989-09-26,requester
-7,Sem Koster,Maastricht,1986-12-11,requester
-8,Milan Prins,Eindhoven,1985-08-18,requester
-9,Levi Blom,Groningen,1977-07-01,requester
-10,Luuk Huisman,Hengelo,1976-08-05,requester
+id,full_name,birthplace,dob,role,ethereum_address
+1,Emma Post,Leeuwarden,1981-07-10,granter,005d9babfd44ec7e18e6eb22b7f2114e06f64421
+2,Julia Kuiper,Amersfoort,1978-10-14,granter,009dd990dcc0ba64f3ed6ff362787ba7fb01acba
+3,Sophie Veenstra,Nijmegen,1954-02-22,granter,00e344d62f38325b57c2ae733f465fedeee6595f
+4,Lotte Hoekstra,Doetinchem,1962-05-11,granter,005a12290f0d1c3ef2aba532e42a4afa4cbf5305
+5,Lisa Maas,Tilburg,1964-04-10,granter,00bbc48803401e465f0d3c23feef0a4d173e705b
+6,Daan Verhoeven,Zoetermeer,1989-09-26,requester,0040b3504fbb1466b1054dbcab4ec617477ab53e
+7,Sem Koster,Maastricht,1986-12-11,requester,0067af5b87da32b14ff58af203cf3d4684319c5c
+8,Milan Prins,Eindhoven,1985-08-18,requester,005db503bea0821f5a18aba4f089598ff6a4cf54
+9,Levi Blom,Groningen,1977-07-01,requester,00797ff50a5d648885767000e1af8b03d7530a32
+10,Luuk Huisman,Hengelo,1976-08-05,requester,00f8272361dbed901d3968bb7cc59766c4b4a8e5
