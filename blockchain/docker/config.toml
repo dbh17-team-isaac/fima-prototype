@@ -1,0 +1,9 @@
+[parity]
+chain = "/etc/fima/chain.json"
+
+[ui]
+interface = "0.0.0.0"
+
+[rpc]
+interface = "0.0.0.0"
+hosts = ["all"]
