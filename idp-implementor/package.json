@@ -1,0 +1,13 @@
+{
+  "name": "isaac_dbh17_idp_implementor",
+  "version": "1.0.0",
+  "description": "FIMA IDP Implementor",
+  "author": "ISAAC <info@isaac.nl>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
