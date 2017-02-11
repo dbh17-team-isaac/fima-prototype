@@ -11,6 +11,12 @@ module.exports = function(app) {
         res.set('Expires', '0');
         next();
     });
+    
+    // API: retrieve available fields
+    app.get('/api/v1/fields', function(req, res) {
+        var response = stubs.getFields();
+        res.json(response);
+    });
 
     // API: retrieve identity attributes
     app.get('/api/v1/identity/:identityId/attributes', function(req, res) {
