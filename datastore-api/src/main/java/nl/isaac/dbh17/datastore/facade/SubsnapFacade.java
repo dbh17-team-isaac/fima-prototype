@@ -24,6 +24,14 @@ public class SubsnapFacade {
 		return subsnap.getSubsnapID();
 	}
 	
+	/**
+	 * Retrieves a subsnap based on it's Subsnap ID
+	 * 
+	 * @param subsnapID The Subsnap ID
+	 * @return The Subsnap
+	 * 
+	 * @throws UnknownSubsnapIdException If no Subsnap can be found based on the given Subsnap ID
+	 */
 	public Subsnap retrieveSubsnap(String subsnapID) throws UnknownSubsnapIdException {
 		Subsnap subsnap = dao.getSubsnap(subsnapID);
 		
