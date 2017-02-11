@@ -25,3 +25,7 @@ services:
       - 8380:8080
     links:
       - blockchain
+  pdm_ui:
+    build: pdm-ui
+    ports:
+      - 8480:8080

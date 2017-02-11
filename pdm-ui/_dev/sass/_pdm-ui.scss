@@ -1,0 +1,28 @@
+body {
+	background-color: #F5F5F5;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif
+}
+
+.container {
+	margin-top: $sticky-header-height-xs;
+}
+
+.container-fluid {
+	padding-right: 5px;
+}
+
+.row {
+	border-bottom: 1px solid #ddd;
+	padding: 0 5px 5px 0;
+	height: 60px;
+}
+
+.vertical-align {
+	display: flex;
+	align-items: center;
+}
+
+.row input {
+	width:40px;
+//	top:3px !important;
+}

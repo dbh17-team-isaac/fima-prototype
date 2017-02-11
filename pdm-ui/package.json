@@ -1,0 +1,27 @@
+{
+  "name": "isaac_dbh17_pdm_ui",
+  "version": "1.0.0",
+  "description": "FIMA PDM UI",
+  "author": "ISAAC <info@isaac.nl>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "web3": "^0.18.2",
+    "angular": "^1.5.9",
+    "bootstrap-sass": "^3.3.7",
+    "del": "^2.2.2",
+    "fastclick": "^1.0.6",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^1.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.11"
+  }
+}

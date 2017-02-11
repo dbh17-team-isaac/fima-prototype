@@ -1,0 +1,108 @@
+header {
+  border-bottom:1px solid #009DDC;;
+  position:fixed;
+  height: $sticky-header-height-xs;
+  width:100%;
+  background-color: #009DDC;;
+  color:#fff;
+  z-index: $zindex-header;
+
+  .header-title {
+    position:absolute;
+    width:calc(100% - 100px);
+    top:0;
+    left:50px;
+    > h1 {
+      margin:0;
+      font-size:18px;
+      font-weight: bold;
+      text-align: center;
+      line-height: $sticky-header-height-xs;
+      white-space: nowrap;
+      color:#fff;
+    }
+  }
+
+  .btn {
+    margin:11px 9px 0 0;
+    border-color:transparent;
+    background-color: transparent;
+    &:hover, &:active {
+      border-color:transparent;
+      background-color: transparent;
+    }
+  }
+
+  .offcanvas-toggle {
+    width:auto;
+    .offcanvas-toggle-bars {
+      top:-1px;
+      // Bars
+      .bar {
+        display: block;
+        width: 19px;
+        height: 3px;
+        background-color:#fff;
+      }
+      .bar + .bar {
+        margin-top: 3px;
+      }
+    }
+
+    .offcanvas-toggle-label {
+      padding-left:4px;
+    }
+
+  }
+
+  .btn-offcanvas-close {
+    height:36px;
+    width:36px;
+  }
+
+  .btn-header-back {
+    height:36px;
+    width:36px;
+    display:block;
+    font-size:30px;
+    border-width:0;
+    padding:8px 0;
+    text-align: center;
+    margin-top:4px;
+    line-height: 1;
+    > a {
+      color:#fff;
+      display:block;
+    }
+  }
+
+  //hide offcanvas toggle and sho close offcanvas button on sm only when offcanvas is open
+  .btn-offcanvas-close {
+    display: none;
+  }
+
+   .offcanvas-open & {
+    .offcanvas-toggle {
+      display: none;
+    }
+    .offcanvas-toggle.btn-offcanvas-close {
+      display: block;
+    }
+  }
+
+
+  .logo {
+    margin:13px 0 0 0;
+
+    //specify image width only, so it is known before the image is loaded
+    //image height is auto
+    > a > img {
+      width:136px;
+    }
+
+  }
+
+  .label-debug {
+      color: #FF9999;
+  }
+}
