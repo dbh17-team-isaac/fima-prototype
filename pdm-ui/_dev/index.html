@@ -33,14 +33,11 @@
 					</div>
 				</form>-->
 				<div ng-hide="editMode" class="read-attribute">
-					<div class="col-xs-1 col-md-1">
-						<input type="checkbox" ng-model="attributesToShare[attribute.id]"></input>
-					</div>
-					<div class="col-xs-3 col-md-2">
-						<label>{{attribute.name}}</label>
+					<div class="col-xs-4 col-md-3">
+						<label>{{ attribute.field.caption }}</label>
 					</div>
 					<div class="col-xs-8 col-md-9">
-						<span>{{attribute.value}}</span>
+						<span>{{ attribute.value }}</span>
 					</div>
 				</div>
 			</div>
@@ -48,11 +45,10 @@
 				<div class="col-xs-8 col-md-8 ">
 					<!--<button class="btn btn-primary" ng-hide="editMode" ng-click="toggleEditMode()">Edit</button>-->
 					<button class="btn btn-primary" ng-show="editMode" ng-click="savePersonalDetails()">Save</button>
-					<button class="btn btn-primary" ng-hide="editMode">Share</button>
+					<!--<button class="btn btn-primary" ng-hide="editMode">Share</button>-->
 				</div>
 			</div>
 			<div class="row">
-				{{ attributesToShare | json}}
 			</div>
 		</div>
 		<script src="global/js/script.js"></script>

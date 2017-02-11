@@ -4,8 +4,8 @@ angular.module('pdm').controller('pdmPersonalDataCtrl', ['$scope', '$http', func
     $scope.editMode = false;
     $scope.attributesToShare = [];
 
-    $http.get('/global/stubs/get-attributes.json').then(function(response) {
-		$scope.attributes = response.data;
+    $http.get('/api/v1/identity/' + identityId + '/attributes').then(function(response) {
+		$scope.attributes = response.data.attributes;
 	});
 
     $scope.toggleEditMode = function() {
@@ -18,7 +18,7 @@ angular.module('pdm').controller('pdmPersonalDataCtrl', ['$scope', '$http', func
         $scope.editMode = false;
     }
 
-    $scope.updateAttributesToShare = function(attribute) {
+    $scope.shareAttribute = function(attribute) {
         console.log(attribute);
     }
 

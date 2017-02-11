@@ -64,9 +64,18 @@ gulp.task('clean', function() {
 
 gulp.task('webserver', ['watch'],  function() {
   connect.server({
-    host: '0.0.0.0',
+    //host: '0.0.0.0',
     root: 'public',
     livereload: true,
+    middleware: function (connect, o) {
+        return [(function () {
+            var url = require('url');
+            var proxy = require('proxy-middleware');
+            var options = url.parse('http://localhost:8480/api');
+            options.route = '/api';
+            return proxy(options);
+        })()];
+    }
   });
 });
 
