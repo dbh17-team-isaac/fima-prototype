@@ -59,4 +59,10 @@ module.exports = function(app) {
         
         res.json(response);
     });
+
+    // API: reset prototype scenario state
+    app.post('/api/v1/stubs/reset', function(req, res) {
+        var response = stubs.reset();
+        res.json(response);
+    });
 };
