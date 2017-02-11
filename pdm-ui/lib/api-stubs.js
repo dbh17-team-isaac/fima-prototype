@@ -34,7 +34,7 @@ module.exports = {
                         type: "string",
                         caption: "Full name"
                     },
-                    value: "Jan Jansen"
+                    value: "Sem Koster"
                 },
                 {
                     field: {
@@ -42,7 +42,7 @@ module.exports = {
                         type: "string",
                         caption: "Birth date"
                     },
-                    value: "1987-06-28"
+                    value: "1986-12-11"
                 },
                 {
                     field: {
@@ -50,7 +50,7 @@ module.exports = {
                         type: "string",
                         caption: "Birth place"
                     },
-                    value: "Utrecht"
+                    value: "Maastricht"
                 },
             ]
         };
@@ -65,7 +65,7 @@ module.exports = {
                 {
                     fromIdentity: {
                         identityId: 999,
-                        description: "Jan Jansen"
+                        description: "Sem Koster"
                     },
                     subsnapId: "2d64dab5-4e5f-46ec-8613-3b18c099a5e9",
                     attributes: [
@@ -75,7 +75,7 @@ module.exports = {
                                 type: "string",
                                 caption: "Birth date"
                             },
-                            value: "1987-06-28"
+                            value: "1986-12-11"
                         }
                     ]
                 }
@@ -115,7 +115,7 @@ module.exports = {
                     requestId: 12345,
                     askIdentity: {
                         identityId: 999,
-                        description: "Jan Jansen"
+                        description: "Sem Koster"
                     },
                     requestFields: [
                         {
