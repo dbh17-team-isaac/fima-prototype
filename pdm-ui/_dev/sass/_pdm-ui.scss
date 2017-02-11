@@ -5,6 +5,8 @@ body {
 
 .container {
     margin-top: $sticky-header-height-xs;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .container-fluid {
@@ -33,11 +35,23 @@ h1, h2, h3,  h4, h5, h6 {
     margin-left: 0;
 }
 
+.row {
+    & > *:first-child {
+        padding-left: 0;
+    }
+
+    & > .pull-right {
+        padding-right: 1em;
+        padding-right: 0;
+    }
+}
+
 .row-menu {
     border-bottom: 1px solid gray;
     a {
         text-transform: uppercase;
-        padding: 1em 1.5em 1em 0;
+        padding-top: 1em;
+        padding-bottom: 1em;
     }
 }
 

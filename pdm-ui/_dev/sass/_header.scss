@@ -1,6 +1,10 @@
 a, .btn {
     color: $colorlinks;
 
+    &.btn-primary {
+        color:white;
+    }
+
     &:hover, &:active {
         color:  $colorlinks-hl;
     }
