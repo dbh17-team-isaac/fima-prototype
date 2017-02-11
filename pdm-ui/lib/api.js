@@ -22,7 +22,7 @@ module.exports = function(app) {
     });
 
     // API: retrieve identity authorizations
-    app.get('/api/v1/identity/:identityId/authorization', function(req, res) {
+    app.get('/api/v1/identity/:identityId/authorizations', function(req, res) {
         var identityId = req.params.identityId;
         
         var response = stubs.getAuthorizationsForIdentity(identityId);
@@ -31,7 +31,7 @@ module.exports = function(app) {
     });
 
     // API: retrieve identity requests
-    app.get('/api/v1/identity/:identityId/request', function(req, res) {
+    app.get('/api/v1/identity/:identityId/requests', function(req, res) {
         var identityId = req.params.identityId;
         
         var response = stubs.getRequestsForIdentity(identityId);
@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
 
     // API: confirm request
-    app.post('/api/v1/identity/:identityId/request/:requestId', function(req, res) {
+    app.post('/api/v1/identity/:identityId/requests/:requestId/confirm', function(req, res) {
         var identityId = req.params.identityId;
         var requestId = req.params.requestId;
 
@@ -50,7 +50,7 @@ module.exports = function(app) {
     });
 
     // API: create request for authorization
-    app.post('/api/v1/request', function(req, res) {
+    app.post('/api/v1/requests', function(req, res) {
         var askIdentityId = req.body.askIdentityId;
         var targetIdentityId = req.body.targetIdentityId;
         var requestFields = req.body.requestFields;
