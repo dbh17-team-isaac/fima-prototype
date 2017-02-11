@@ -8,3 +8,15 @@ Required smart contracts
    - Encrypted subsnap ID
    - Recipient public key (address?)
    - Event: authorizationCreated(address recipient, byte[] subsnap ID)
+
+-----
+The following use case is nearly impossible to support: prove that someone should have been able to access data.
+This is because:
+- you need to be able to decrypt the data in the authorization entry which will probably be encrypted with the recipient's public key;
+- you cannot store a separate set of decryptable data in the authorization entry, because you then need to prove that the data is equivalent (which cannot be done because of the previous reason);
+- the datastore is off-chain and you cannot guarantee the availability of data if e.g. the datastore operator decides to return random data or stop the service altogether before the recipient has had the chance to obtain the subsnap.
+
+The use case that someone accesses your data after an end date is only possible to implement if we find a way to let the sender prove the recipient and type of subsnap.
+-> This can be done with a shared key that is remembered by both parties.
+
+The use case that someone has actually accessed your data is difficult to support since that would require cooperation of the datastore or the recipient, both untrusted parties.
