@@ -27,7 +27,7 @@ paths:
       parameters:
         - in: body
           name: body
-          description: Base64 encoded string
+          description: Base64 encoded data
           required: true
           schema:
             $ref: "#/definitions/StoreSubsnapRequest"
@@ -39,6 +39,8 @@ paths:
             properties:
               subsnapID:
                 type: "string"
+        "400":
+          description: "Invalid Base64 data"
   /subsnap/{id}:
     get:
       summary: "Retrieve a subsnap"
@@ -50,7 +52,7 @@ paths:
           required: true
       responses:
         "200":
-          description: "Subsnap was found and data is returned"
+          description: "Subsnap was found and data is returned. Data field is Base64 encoded."
           schema:
             type: "object"
             properties:
