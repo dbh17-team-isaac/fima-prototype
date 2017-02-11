@@ -1,12 +1,15 @@
 // Stub state
 var state = {};
 
+const UC1_AUTH = 'UC-1-authorizationCreated';
+const UC1_REQ = 'UC-1-requestCreated';
+
 /**
  * API prototype stubs.
  */
 module.exports = {
     confirmRequest: function(identityId, requestId) {
-        state['UC-1-authorizationCreated'] = true;
+        state[UC1_AUTH] = true;
         return {
             result: "success",
             requestId: requestId
@@ -14,7 +17,7 @@ module.exports = {
     },
 
     createRequest: function(askIdentityId, targetIdentityId, requestFields) {
-        state['UC-1-requestCreated'] = true;
+        state[UC1_REQ] = true;
         return {
             result: "success",
             requestId: 12345
@@ -54,7 +57,7 @@ module.exports = {
     },
 
     getAuthorizationsForIdentity: function(identityId) {
-        if (!('UC-1-authorizationCreated' in state)) {
+        if (!(UC1_AUTH in state)) {
             return {authorizations: []};
         }
         return {
@@ -81,7 +84,7 @@ module.exports = {
     },
 
     getRequestsForIdentity: function(identityId) {
-        if (!('UC-1-requestCreated' in state)) {
+        if (!(UC1_REQ in state)) {
             return {requests: []};
         }
         return {
