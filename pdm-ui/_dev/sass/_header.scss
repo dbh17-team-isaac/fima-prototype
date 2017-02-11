@@ -12,14 +12,14 @@ header {
         width:calc(100% - 100px);
         top:0;
         left:50px;
-        > h1 {tab
+        > h1 {
             margin:0;
             font-size:18px;
             font-weight: bold;
             text-align: center;
             line-height: $sticky-header-height-xs;
             white-space: nowrap;
-            color:#fff;inst
+            color:#fff;
         }
     }
 
