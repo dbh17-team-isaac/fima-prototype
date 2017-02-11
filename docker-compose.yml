@@ -1,9 +1,13 @@
 version: "2"
 services:
-  datastore_api:
+  blockchain:
+    build: blockchain
+    ports:
+      - 8180:8180
+  datastore-api:
     build: datastore-api
     ports:
-      - 8180:8080
+      - 8280:8080
     volumes:
       - ./datastore-api/docker/deployments:/opt/jboss/wildfly/standalone/deployments
     depends_on:
@@ -18,5 +22,6 @@ services:
   idp_implementor:
     build: idp-implementor
     ports:
-      - 8280:8080
-
+      - 8380:8080
+    links:
+      - blockchain
