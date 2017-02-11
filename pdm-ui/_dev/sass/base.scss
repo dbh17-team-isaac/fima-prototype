@@ -6,12 +6,8 @@ $zindex-header:           1080 !default;
 $grid-gutter-width:         0px;
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-$hue: 180;
 
-$color-header-bg: hsl($hue, 80%, 35%);
-$color-page-bg: hsl($hue, 30%, 95%);
-$colorlinks: hsl($hue, 80%, 30%);
-$colorlinks-hl: hsl($hue + 45, 100%, 40%);
 
 @import "header";
 @import "pdm-ui";
+@import "identities"

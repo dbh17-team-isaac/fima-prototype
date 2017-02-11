@@ -1,21 +1,7 @@
-a, .btn {
-    color: $colorlinks;
-
-    &.btn-primary {
-        color:white;
-    }
-
-    &:hover, &:active {
-        color:  $colorlinks-hl;
-    }
-}
-
 header {
-    border-bottom:1px solid $color-header-bg;
     position:fixed;
     height: $sticky-header-height-xs;
     width:100%;
-    background-color: $color-header-bg;
     color:#fff;
     z-index: $zindex-header;
 

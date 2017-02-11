@@ -1,0 +1,39 @@
+@mixin identity($identity) {
+    $hue: 180 + ($identity - 1) * 36 * 17;
+
+    $color-header-bg: hsl($hue, 80%, 35%);
+    $color-page-bg: hsl($hue, 30%, 95%);
+    $colorlinks: hsl($hue, 80%, 30%);
+    $colorlinks-hl: hsl($hue + 45, 100%, 40%);
+
+    body.identity-#{$identity} {
+        header {
+            border-bottom: px solid $color-header-bg;
+            background-color: $color-header-bg;
+            z-index: $zindex-header;
+        }
+
+        a, .btn {
+            color: $colorlinks;
+
+            &.btn-primary {
+                color:white;
+            }
+
+            &:hover, &:active {
+                color:  $colorlinks-hl;
+            }
+        }
+    }
+}
+
+@include identity(1);
+@include identity(2);
+@include identity(3);
+@include identity(4);
+@include identity(5);
+@include identity(6);
+@include identity(7);
+@include identity(8);
+@include identity(9);
+@include identity(10);
