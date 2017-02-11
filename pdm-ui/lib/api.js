@@ -43,12 +43,11 @@ module.exports = function(app) {
 
     // API: request authorization
     app.post('/api/v1/request', function(req, res) {
-        // askIdentityId
-        // targetIdentityId
-        // requestFields
-        console.log(req.body);
+        var askIdentityId = req.body.askIdentityId;
+        var targetIdentityId = req.body.targetIdentityId;
+        var requestFields = req.body.requestFields;
         
-        var response = stubs.createRequest(null, null, null);
+        var response = stubs.createRequest(askIdentityId, targetIdentityId, requestFields);
         
         res.json(response);
     });

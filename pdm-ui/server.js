@@ -1,5 +1,6 @@
 'use strict';
 
+const bodyParser = require('body-parser');
 const express = require('express');
 const Web3 = require('web3');
 
@@ -10,6 +11,7 @@ var config = {
 };
 
 const app = express();
+app.use(bodyParser.json());
 
 // Enable API
 var api = require('./lib/api.js');
