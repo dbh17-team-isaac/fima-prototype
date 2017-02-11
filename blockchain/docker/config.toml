@@ -1,5 +1,6 @@
 [parity]
 chain = "/etc/fima/chain.json"
+base_path = "/var/lib/fima/"
 
 [ui]
 interface = "0.0.0.0"
