@@ -8,6 +8,7 @@ header {
     z-index: $zindex-header;
 
     .header-title {
+        background: url('/global/dbh17-logo.png') no-repeat right;
         position:absolute;
         width:calc(100% - 100px);
         top:0;
