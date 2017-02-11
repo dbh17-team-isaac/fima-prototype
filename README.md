@@ -9,11 +9,11 @@ FIMA stands for "Framework for Identity Management and Authorization".
 
 You can start FIMA by running `docker-compose`:
 
-  docker-compose up -d
+   docker-compose up -d
 
 You can then find the PDM prototype UI at the following location:
 
-  http://localhost:8080/
+   http://localhost:8080/
 
 ## Technology
 
