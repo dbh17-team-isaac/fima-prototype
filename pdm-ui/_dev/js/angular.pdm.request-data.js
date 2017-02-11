@@ -17,8 +17,8 @@ angular.module('pdm').controller('pdmRequestDataCtrl', ['$scope', '$http', funct
 		}, this);
 
 		var request = {
-			askIdentityId: '',
-			targetIdentityId: '',
+			askIdentityId: getIdentityId(),
+			targetIdentityId: getTargetIdentityId(),
 			requestFields: requestFields
 		}
 
