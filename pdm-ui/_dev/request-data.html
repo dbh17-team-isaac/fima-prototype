@@ -21,13 +21,29 @@
 		</div>
 		<div class="container ng-cloak">
 			<div class="row row-menu">
-                <a class="btn" href="/index.html">Personal data</a>
-                <a class="btn" href="/request-data.html">Request data</a>
-                <a class="btn" href="/authorize-request.html">Authorize request</a>
-
-                <a class="btn pull-right" ng-click="resetStubs()">Reset</a>
+				<a class="btn" href="/index.html">Personal data</a>
+				<a class="btn" href="/request-data.html">Request data</a>
+				<a class="btn" href="/authorize-request.html">Autorize request</a>
 			</div>
 			<h3>Request data</h3>
+			<div class="row" ng-repeat="field in fields">
+				<div class="read-attribute">
+					<div class="col-xs-1 col-md-1">
+						<input type="checkbox" ng-model="field.request"/>
+					</div>
+					<div class="col-xs-4 col-md-11">
+						<span>{{ field.caption }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-1 col-md-1">
+					<button class="btn btn-primary" ng-click="requestData()">Request</button>
+				</div>
+				<div class="col-xs-4 col-md-11">
+					<p ng-show="requestSuccess" class="text-success"><i class="fa fa-check-circle" aria-hidden="true"></i></i> Request has been sent</p>
+				</div>
+			</div>
 		</div>
 		<script src="global/js/script.js"></script>
 	</body>
