@@ -35,6 +35,7 @@ public class SubsnapDAO {
 		try {
 			return query.getSingleResult();
 		} catch (NoResultException e) {
+			logger.warn("Cannot find subsnap with ID " + subsnapID, e);
 			return null;
 		}
 	}

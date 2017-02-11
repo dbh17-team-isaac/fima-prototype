@@ -36,7 +36,7 @@ public class SubsnapBD {
 		try {
 			data = Base64.getDecoder().decode(storeRequest.getData());
 		} catch (IllegalArgumentException e) {
-			logger.error("Invalid Base64 data for new subsnap");
+			logger.error("Invalid Base64 data for new subsnap", e);
 			throw new WebApplicationException(Status.BAD_REQUEST);
 		}
 		
@@ -52,7 +52,7 @@ public class SubsnapBD {
 		try {
 			 subsnap = subsnapFacade.retrieveSubsnap(subsnapID);
 		} catch (UnknownSubsnapIdException e) {
-			logger.warn("Subsnap with ID '" + subsnapID + "' not found");
+			logger.warn("Subsnap with ID '" + subsnapID + "' not found", e);
 			throw new WebApplicationException(Status.NOT_FOUND);
 		}
 		

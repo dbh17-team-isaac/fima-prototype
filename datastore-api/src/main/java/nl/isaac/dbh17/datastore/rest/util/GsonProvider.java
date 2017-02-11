@@ -18,6 +18,9 @@ import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.ext.Provider;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -25,6 +28,7 @@ import com.google.gson.GsonBuilder;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class GsonProvider implements MessageBodyWriter<Object>, MessageBodyReader<Object> {
+	private static final Logger logger = LoggerFactory.getLogger(GsonProvider.class);
 
 	private static final String UTF_8 = "UTF-8";
 
@@ -52,26 +56,21 @@ public class GsonProvider implements MessageBodyWriter<Object>, MessageBodyReade
 		    Annotation[] annotations, MediaType mediaType,
 		    MultivaluedMap<String, String> httpHeaders, InputStream entityStream) {
 
-		InputStreamReader streamReader = null;
-		try {
-		    streamReader = new InputStreamReader(entityStream, UTF_8);
+		try (InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8)){
+			Type jsonType;
+			if (type.equals(genericType)) {
+				jsonType = type;
+			} else {
+				jsonType = genericType;
+			}
+			return getGson().fromJson(streamReader, jsonType);
+
 		} catch (UnsupportedEncodingException e) {
-		    e.printStackTrace();
-		}
-		try {
-		    Type jsonType;
-		    if (type.equals(genericType)) {
-		        jsonType = type;
-		    } else {
-		        jsonType = genericType;
-		    }
-		    return getGson().fromJson(streamReader, jsonType);
-		} finally {
-		    try {
-		        streamReader.close();
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		    }
+		    logger.error("Error while reading entity stream", e);
+		    throw new RuntimeException(e);
+		} catch (IOException e) {
+			logger.error("Error while reading entity stream", e);
+		    throw new RuntimeException(e);
 		}
 	}
 
