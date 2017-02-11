@@ -9,6 +9,11 @@ Required smart contracts
    - Recipient public key (address?)
    - Event: authorizationCreated(address recipient, byte[] subsnap ID)
 
+3. PDM smart contract
+   Goal: store latest (full) subsnap ID for your identity
+   - Key: your main identity address
+   - Value: encrypted subsnap ID
+
 -----
 The following use case is nearly impossible to support: prove that someone should have been able to access data.
 This is because:
