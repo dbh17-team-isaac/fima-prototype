@@ -1,10 +1,11 @@
-# Introduction
+# FIMA
+## Introduction
 
 FIMA is a personal data framework with facilities for identification, data management, information sharing and auditing.
 
 FIMA stands for "Framework for Identity Management and Authorization".
 
-# Running FIMA
+## Running FIMA
 
 You can start FIMA by running `docker-compose`:
 
@@ -14,7 +15,7 @@ You can then find the PDM prototype UI at the following location:
 
   http://localhost:8080/
 
-# Technology
+## Technology
 
 FIMA uses the following open source software:
 
