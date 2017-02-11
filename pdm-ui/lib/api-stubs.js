@@ -3,6 +3,8 @@ var state = {};
 
 const UC1_AUTH = 'UC-1-authorizationCreated';
 const UC1_REQ = 'UC-1-requestCreated';
+const UC1_REQ_ASK_IDENTITY = 'UC-1-requestAskIdentityID';
+const UC1_REQ_TARGET_IDENTITY = 'UC-1-requestTargetIdentityID';
 
 /**
  * API prototype stubs.
@@ -18,6 +20,8 @@ module.exports = {
 
     createRequest: function(askIdentityId, targetIdentityId, requestFields) {
         state[UC1_REQ] = true;
+        state[UC1_REQ_ASK_IDENTITY] = askIdentityId;
+        state[UC1_REQ_TARGET_IDENTITY] = targetIdentityId;
         return {
             result: "success",
             requestId: 12345
@@ -105,29 +109,36 @@ module.exports = {
         };
     },
 
+    getRequestById: function(requestId) {
+        if (requestId == "12345") {
+            return {
+                requestId: 12345,
+                askIdentity: {
+                    identityId: state[UC1_REQ_ASK_IDENTITY],
+                    description: "Sem Koster"
+                },
+                requestFields: [
+                    {
+                        field: {
+                            UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
+                            type: "string",
+                            caption: "Birth date"
+                        },
+                        required: true
+                    }
+                ]
+            };
+        }
+        return {};
+    },
+
     getRequestsForIdentity: function(identityId) {
         if (!(UC1_REQ in state)) {
             return {requests: []};
         }
         return {
             requests: [
-                {
-                    requestId: 12345,
-                    askIdentity: {
-                        identityId: 999,
-                        description: "Sem Koster"
-                    },
-                    requestFields: [
-                        {
-                            field: {
-                                UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
-                                type: "string",
-                                caption: "Birth date"
-                            },
-                            required: true
-                        }
-                    ]
-                }
+                module.exports.getRequestById(12345)
             ]
         };
     },

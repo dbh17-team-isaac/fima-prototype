@@ -3,7 +3,15 @@
  */
 module.exports = function(app, wsApp) {
     var stubs = require('./api-stubs.js');
-    
+    var wsByIdentity = {};
+
+    // Websocket send helper
+    function sendWS(identityId, msg) {
+        if (identityId in wsByIdentity) {
+            wsByIdentity[identityId].send(msg);
+        }
+    }
+
     // Send anti-caching headers for all API endpoints
     app.get('/api/v1/*', function(req, res, next) {
         res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
@@ -11,7 +19,7 @@ module.exports = function(app, wsApp) {
         res.set('Expires', '0');
         next();
     });
-    
+
     // API: retrieve available fields
     app.get('/api/v1/fields', function(req, res) {
         var response = stubs.getFields();
@@ -30,26 +38,24 @@ module.exports = function(app, wsApp) {
     // API: retrieve identity authorizations
     app.get('/api/v1/identity/:identityId/authorizations', function(req, res) {
         var identityId = req.params.identityId;
-        
+
         var response = stubs.getAuthorizationsForIdentity(identityId);
-        
+
         res.json(response);
     });
 
     // API: events websocket
     wsApp.ws('/api/v1/identity/:identityId/events', function(ws, req) {
         var identityId = req.params.identityId;
-        ws.on('message', function(msg) {
-            ws.send(msg + ' response!');
-        });
+        wsByIdentity[identityId] = ws;
     });
 
     // API: retrieve identity requests
     app.get('/api/v1/identity/:identityId/requests', function(req, res) {
         var identityId = req.params.identityId;
-        
+
         var response = stubs.getRequestsForIdentity(identityId);
-        
+
         res.json(response);
     });
 
@@ -60,6 +66,10 @@ module.exports = function(app, wsApp) {
 
         var response = stubs.confirmRequest(identityId, requestId);
 
+        // Notify the asker
+        var request = stubs.getRequestById(requestId);
+        sendWS(request.askIdentity.identityId, 'AuthorizationCreated');
+
         res.json(response);
     });
 
@@ -68,9 +78,12 @@ module.exports = function(app, wsApp) {
         var askIdentityId = req.body.askIdentityId;
         var targetIdentityId = req.body.targetIdentityId;
         var requestFields = req.body.requestFields;
-        
+
         var response = stubs.createRequest(askIdentityId, targetIdentityId, requestFields);
         
+        // Notify target
+        sendWS(targetIdentityId, 'RequestCreated');
+
         res.json(response);
     });
 
