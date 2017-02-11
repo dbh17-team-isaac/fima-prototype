@@ -30,3 +30,11 @@ div .read-attribute {
     border-bottom: 1px solid lightgray;
     height: 38px;
 }
+
+.text-success {
+	padding: 6px;
+
+	.fa-check-circle {
+		font-size: 18px;
+	}
+}
