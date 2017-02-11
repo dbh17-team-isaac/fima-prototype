@@ -1,32 +1,32 @@
 body {
-	background-color: #F5F5F5;
-	font-family: "Open Sans", Arial, Helvetica, sans-serif
+    background-color: #F5F5F5;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif
 }
 
 .container {
-	margin-top: $sticky-header-height-xs;
+    margin-top: $sticky-header-height-xs;
 }
 
 .container-fluid {
-	padding-right: 5px;
+    padding-right: 5px;
 }
 
 form {
-	label {
-		padding-top: 6px;
-	}
+    label {
+        padding-top: 6px;
+    }
 }
 
 .vertical-align {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 div .read-attribute {
-	height: 30px;
+    height: 30px;
 }
 
 .row-menu {
-	border-bottom: 1px solid lightgray;
-	height: 38px;
+    border-bottom: 1px solid lightgray;
+    height: 38px;
 }
