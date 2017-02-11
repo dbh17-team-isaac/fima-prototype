@@ -28,4 +28,4 @@ services:
   pdm_ui:
     build: pdm-ui
     ports:
-      - 8480:8080
+      - 8080:8080
