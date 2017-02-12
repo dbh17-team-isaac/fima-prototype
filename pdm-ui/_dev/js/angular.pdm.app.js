@@ -13,7 +13,7 @@ if (!sessionStorage.getItem('PDM-IdentityId')) {
 document.body.className += ' identity-' + getIdentityId();
 
 // Start websocket connection to listen for events
-var ws = new WebSocket('ws://localhost:3000/api/v1/identity/' + getIdentityId() + '/events');
+var ws = new WebSocket('ws://' + location.hostname + ':3000/api/v1/identity/' + getIdentityId() + '/events');
 ws.addEventListener('message', function(msg) {
     console.log(msg);
     var eventName = msg.data;
