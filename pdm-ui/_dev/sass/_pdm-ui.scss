@@ -1,5 +1,10 @@
 body {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    //padding-top: 75px;
+}
+
+main {
+    padding-top: 50px;
 }
 
 .container {
@@ -29,9 +34,14 @@ div .read-attribute {
 
 h1, h2, h3,  h4, h5, h6 {
     font-weight: normal;
-    font-family: 'Oleo Script Swash Caps', sans-serif;
-    text-transform: lowercase;
+    //font-family: 'Oleo Script Swash Caps', sans-serif;
+    //text-transform: lowercase;
     margin-left: 0;
+    padding: 12px 0 12px 0;
+}
+
+h1 {
+    font-size: 38px;
 }
 
 .row {
@@ -53,6 +63,20 @@ h1, h2, h3,  h4, h5, h6 {
     }
 }
 
+.row-personal-details {
+    border-bottom: 1px solid lightgray;
+    padding: 13px 0 5px 0;
+    font-size: 16px;
+
+    .read-attribute {
+        padding-left: 1px;
+    }
+}
+
+.row-buttons {
+    padding: 10px 0 10px 0;
+}
+
 .text-success {
     padding: 6px;
 
@@ -63,4 +87,17 @@ h1, h2, h3,  h4, h5, h6 {
 
 .dialog li {
     text-align: left;
+}
+
+.navbar {
+    height: 120px;
+
+    .container {
+        margin-top: 78px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding-left: 0px;
+    }
 }

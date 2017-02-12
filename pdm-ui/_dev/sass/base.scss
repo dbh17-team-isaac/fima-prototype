@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps');
 
-$sticky-header-height-xs: 60px;
+$sticky-header-height-xs: 70px;
 $zindex-header:           1080 !default;
 
 $grid-gutter-width:         0px;
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
-
 
 @import "header";
 @import "pdm-ui";

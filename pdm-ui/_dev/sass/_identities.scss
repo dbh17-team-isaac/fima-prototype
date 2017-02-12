@@ -2,13 +2,14 @@
     $hue: 180 + ($identity - 1) * 36 * 17;
 
     $spot-color-header-bg: hsl($hue, 80%, 35%);
+    $spot-color-btn-bg: hsl($hue, 80%, 35%);
     $spot-color-dark: hsl($hue, 70%, 20%);
     $spot-color-page-bg: hsl($hue, 30%, 95%);
     $spot-color-links: hsl($hue, 80%, 30%);
     $spot-color-links-hl: hsl($hue + 45, 100%, 40%);
 
     body.identity-#{$identity} {
-        background-color: $spot-color-page-bg;
+        //background-color: $spot-color-page-bg;
 
         h1, h2, h3, h4, h5, h6 {
             color: $spot-color-dark;
@@ -36,6 +37,11 @@
             &:hover, &:active {
                 color:  $spot-color-links-hl;
             }
+        }
+
+        .btn-primary {
+            background-color: $spot-color-btn-bg;
+            font-size: 16px;
         }
     }
 }

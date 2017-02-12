@@ -7,14 +7,15 @@ header {
 
     .header-title {
         background: url('/global/dbh17-logo.png') no-repeat right;
+        font-family: 'Roboto';
         position:absolute;
         width:calc(100% - 100px);
         top:0;
-        left:50px;
+        left:60px;
         margin:0;
         font-size:36px;
         font-weight: bold;
-        text-align: center;
+        //text-align: center;
         line-height: $sticky-header-height-xs;
         white-space: nowrap;
         color:#fff;
@@ -22,9 +23,13 @@ header {
         .caption {
             font-weight: normal;
             margin-left: 1em;
-            font-size:30px;
-            font-family: 'Oleo Script Swash Caps', sans-serif;
-            text-transform: lowercase;
+            font-size:20px;
+            //text-align: center;
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            //font-family: 'Oleo Script Swash Caps', sans-serif;
+            //text-transform: lowercase;
         }
     }
 
