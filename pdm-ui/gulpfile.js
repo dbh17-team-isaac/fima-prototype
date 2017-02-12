@@ -1,6 +1,5 @@
 var source = "./_dev";
 var target = "./public";
-
 var gulp = require('gulp');
 var changed = require('gulp-changed');
 var concat = require('gulp-concat');
@@ -11,19 +10,16 @@ var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var del = require('del');
 var connect = require('gulp-connect');
-
 var js_src = [
     'node_modules/angular/angular.min.js',
     'node_modules/bootstrap/js/bootstrap.min.js',
     'node_modules/alertify.js/dist/js/alertify.js',
     source + '/js/*.js'
 ]
-
 var assets_src = [
     source + '/assets/**/*',
     source + '/*.*',
 ];
-
 var sass_src = [
     source + '/sass/**/*.scss'
 ];
