@@ -2,14 +2,25 @@
 
 const bodyParser = require('body-parser');
 const express = require('express');
-const Web3 = require('web3');
 
 // Configuration
 var config = {
+    blockchainFIMAAccount: "0x00cEB73c4577084C934eA579e7A8271778449008",
     listenPort: 8080,
     parityUrl: "http://blockchain:8545",
     websocketPort: 3000
 };
+
+// --------------------
+// Bootstrap Blockchain
+// --------------------
+const FIMA = require('./lib/fima.js');
+const Web3 = require('web3');
+
+let web3 = new Web3(new Web3.providers.HttpProvider(config.parityUrl));
+let fima = new FIMA(config.blockchainFIMAAccount, web3);
+
+fima.bootstrapContracts();
 
 // --------------
 // HTTP interface
