@@ -20,7 +20,7 @@ ws.addEventListener('message', function(msg) {
     console.log('Incoming event: ' + eventName);
     switch (eventName) {
         case 'AuthorizationCreated':
-            // TODO
+            updateAuthorizationCount();
             break;
         case 'RequestCreated':
             alertify
@@ -52,5 +52,13 @@ function resetStubs() {
     var $http = angular.injector(["ng"]).get("$http");
     $http.post('/api/v1/stubs/reset').then(function() {
         location.reload();
+    });
+}
+
+function updateAuthorizationCount() {
+    var $http = angular.injector(["ng"]).get("$http");
+    $http.get('/api/v1/identity/' + getIdentityId() + '/authorizations').then(function(response) {
+        var numAuth = response.data.authorizations.length;
+        document.getElementById('authCount').innerHTML = numAuth;
     });
 }
