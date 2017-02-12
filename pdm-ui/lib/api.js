@@ -1,7 +1,21 @@
+let FIMA = require('./fima.js');
+
+String.prototype.hexEncode = function() {
+    var hex, i;
+
+    var result = "";
+    for (i = 0; i < this.length; i++) {
+        hex = this.charCodeAt(i).toString(16);
+        result += ("000"+hex).slice(-4);
+    }
+
+    return result;
+};
+
 /**
  * PDM API endpoint implementations.
  */
-module.exports = function(app, wsApp) {
+module.exports = function(app, wsApp, web3, contractsRegistry) {
     var stubs = require('./api-stubs.js');
     var wsByIdentity = {};
 
@@ -69,6 +83,17 @@ module.exports = function(app, wsApp) {
         var requestId = req.params.requestId;
 
         var response = stubs.confirmRequest(identityId, requestId);
+        
+        // Put the authorization on the blockchain
+        var identityAddress = "0x0067af5b87da32b14ff58af203cf3d4684319c5c";
+        var fima = new FIMA(identityAddress, web3);
+        var authContract = fima.getAuthorizationTrackerContract(contractsRegistry.authorizationTracker.address);
+
+        var granter = "0x" + (identityId + '').hexEncode();
+        var grantee = "0x1234abcd";
+        var subsnapID = "0xabcd1234";
+
+        authContract.authorize(granter, grantee, subsnapID);
 
         // Notify the asker
         var request = stubs.getRequestById(requestId);

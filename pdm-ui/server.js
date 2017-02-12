@@ -20,7 +20,7 @@ const Web3 = require('web3');
 let web3 = new Web3(new Web3.providers.HttpProvider(config.parityUrl));
 let fima = new FIMA(config.blockchainFIMAAccount, web3);
 
-fima.bootstrapContracts();
+let contractsRegistry = fima.bootstrapContracts();
 
 // --------------
 // HTTP interface
@@ -41,7 +41,7 @@ var expressWs = require('express-ws')(wsApp);
 
 // Enable API
 var api = require('./lib/api.js');
-api(httpApp, wsApp);
+api(httpApp, wsApp, web3, contractsRegistry);
 
 // Listen on configured ports
 httpApp.listen(config.listenPort);
