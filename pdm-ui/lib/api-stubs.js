@@ -42,6 +42,22 @@ module.exports = {
                 },
                 {
                     field: {
+                        UUID: "d4c7198c-9f0d-458d-8848-5e82d95d7da0",
+                        type: "string",
+                        caption: "Phone number"
+                    },
+                    value: "+31 6 55 55 55 55"
+                },
+                {
+                    field: {
+                        UUID: "eff69bda-0232-49b5-bc71-4f35def322b4",
+                        type: "string",
+                        caption: "Email address"
+                    },
+                    value: "sem.koster@company.tld"
+                },
+                {
+                    field: {
                         UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
                         type: "string",
                         caption: "Birth date"
@@ -94,6 +110,16 @@ module.exports = {
                     UUID: "16a8053c-329e-41cb-ab9d-87c6f4ee2d6a",
                     type: "string",
                     caption: "Full name"
+                },
+                {
+                    UUID: "d4c7198c-9f0d-458d-8848-5e82d95d7da0",
+                    type: "string",
+                    caption: "Phone number"
+                },
+                {
+                    UUID: "eff69bda-0232-49b5-bc71-4f35def322b4",
+                    type: "string",
+                    caption: "Email address"
                 },
                 {
                     UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
