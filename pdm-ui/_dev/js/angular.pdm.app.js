@@ -23,7 +23,16 @@ ws.addEventListener('message', function(msg) {
             // TODO
             break;
         case 'RequestCreated':
-            // TODO
+            alertify
+                .okBtn("Accept")
+                .cancelBtn("Deny")
+                .confirm("Message with<ul><li>test</li></ul>", function (ev) {
+                    // TODO do http request
+                    console.log('accepted!');
+                }, function (ev) {
+
+                });
+
             break;
         default:
             throw new Error('Unsupported event: ' + eventName);
