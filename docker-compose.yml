@@ -1,4 +1,5 @@
 version: "2"
+
 services:
   blockchain:
     build: blockchain
@@ -27,6 +28,9 @@ services:
       - blockchain
   pdm_ui:
     build: pdm-ui
+    links:
+      - blockchain
+      - datastore-api
     ports:
       - 3000:3000
       - 8080:8080
