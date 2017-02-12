@@ -72,6 +72,38 @@ module.exports = {
                     },
                     value: "Maastricht"
                 },
+                {
+                    field: {
+                        UUID: "71bb1295-a7ea-4a6d-bd03-be30de7156e2",
+                        type: "string",
+                        caption: "Burgerservicenummer"
+                    },
+                    value: "081365382"
+                },
+                {
+                    field: {
+                        UUID: "8eafa313-cb33-422b-b10e-3b74f0127d63",
+                        type: "string",
+                        caption: "Level of education"
+                    },
+                    value: "VWO"
+                },
+                {
+                    field: {
+                        UUID: "d9b8a106-f79c-4261-b583-e9509fd87760",
+                        type: "string",
+                        caption: "Blood type"
+                    },
+                    value: "AB+"
+                },
+                {
+                    field: {
+                        UUID: "84af3cb1-4f9d-4cf5-a48b-3767d308ff8f",
+                        type: "string",
+                        caption: "Last measured blood pressure"
+                    },
+                    value: "110 / 75"
+                },
             ]
         };
     },
@@ -130,6 +162,26 @@ module.exports = {
                     UUID: "4182654f-72f3-4f88-87da-f569e3fff13a",
                     type: "string",
                     caption: "Birth place"
+                },
+                {
+                    UUID: "71bb1295-a7ea-4a6d-bd03-be30de7156e2",
+                    type: "string",
+                    caption: "Burgerservicenummer"
+                },
+                {
+                    UUID: "8eafa313-cb33-422b-b10e-3b74f0127d63",
+                    type: "string",
+                    caption: "Level of education"
+                },
+                {
+                    UUID: "d9b8a106-f79c-4261-b583-e9509fd87760",
+                    type: "string",
+                    caption: "Blood type"
+                },
+                {
+                    UUID: "84af3cb1-4f9d-4cf5-a48b-3767d308ff8f",
+                    type: "string",
+                    caption: "Last measured blood pressure"
                 },
             ]
         };
