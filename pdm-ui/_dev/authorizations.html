@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	</head>
-	<body ng-app="pdm" ng-controller="pdmAuthorizeRequestCtrl">
+	<body ng-app="pdm" ng-controller="pdmAuthorizationsCtrl">
 		<div id="content" class="offcanvas-content clearfix">
 			<header>
 				<div class="container-fluid">
@@ -28,7 +28,21 @@
 
                 <a class="btn pull-right" ng-click="resetStubs()">Reset</a>
 			</div>
-			<h3>Authorize request</h3>
+
+            <div ng-if="authorizations.length == 0" class="alert alert-info">
+                You have no viewable authorizations.
+            </div>
+            <div ng-repeat="authorization in authorizations">
+                <h3>Authorization from {{ authorization.fromIdentity.description }}</h3>
+ 				<div class="row" ng-repeat="attribute in authorization.attributes">
+					<div class="col-xs-4 col-md-3">
+						<label>{{ attribute.field.caption }}</label>
+					</div>
+					<div class="col-xs-8 col-md-9">
+						<span>{{ attribute.value }}</span>
+					</div>
+				</div>
+            </div>
 		</div>
 		<script src="global/js/script.js"></script>
 	</body>
