@@ -23,16 +23,7 @@ ws.addEventListener('message', function(msg) {
             updateAuthorizationCount();
             break;
         case 'RequestCreated':
-            alertify
-                .okBtn("Accept")
-                .cancelBtn("Deny")
-                .confirm("Message with<ul><li>test</li></ul>", function (ev) {
-                    // TODO do http request
-                    console.log('accepted!');
-                }, function (ev) {
-
-                });
-
+            handleRequestCreated();
             break;
         default:
             throw new Error('Unsupported event: ' + eventName);
@@ -49,8 +40,7 @@ function getTargetIdentityId() {
 }
 
 function resetStubs() {
-    var $http = angular.injector(["ng"]).get("$http");
-    $http.post('/api/v1/stubs/reset').then(function() {
+    getHttpClient().post('/api/v1/stubs/reset').then(function() {
         location.reload();
     });
 }
@@ -61,4 +51,36 @@ function updateAuthorizationCount() {
         var numAuth = response.data.authorizations.length;
         document.getElementById('authCount').innerHTML = numAuth;
     });
+}
+
+function handleRequestCreated() {
+    getHttpClient().get("/api/v1/identity/" + getIdentityId() + "/requests").then(function(response) {
+        var requests = response.data.requests;
+        var request = requests[0];
+
+        var message = request.askIdentity.description + " asks permission to receive the following information:<br><ul>";
+
+        request.requestFields.forEach(function(field) {
+            message += "<li>" + field.field.caption + "</li>";
+        }, this);
+
+        message += "</ul>";
+
+        alertify
+            .okBtn("Accept")
+            .cancelBtn("Deny")
+            .confirm(message, function (ev) {
+                confirmRequestAuthorization(request.requestId);
+            });
+    });
+}
+
+function confirmRequestAuthorization(requestId) {
+    getHttpClient().post('/api/v1/identity/' + getIdentityId() + '/requests/' + requestId + '/confirm').then(function(response) {
+        console.log('Yay!');
+    });
+}
+
+function getHttpClient() {
+    return angular.injector(["ng"]).get("$http");
 }

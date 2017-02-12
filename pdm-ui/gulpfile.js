@@ -15,7 +15,7 @@ var connect = require('gulp-connect');
 var js_src = [
     'node_modules/angular/angular.min.js',
     'node_modules/bootstrap/js/bootstrap.min.js',
-    'node_modules/fastclick/lib/fastclick.js',
+    'node_modules/alertify.js/dist/js/alertify.js',
     source + '/js/*.js'
 ]
 
