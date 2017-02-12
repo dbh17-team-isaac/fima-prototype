@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Authorizations - FIMA PDM</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <head>
+        <title>Authorizations - FIMA PDM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-		<link rel="stylesheet" href="global/css/base.css"/>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="global/css/base.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-	</head>
-	<body ng-app="pdm" ng-controller="pdmAuthorizationsCtrl">
-		<div id="content" class="offcanvas-content clearfix">
-			<header>
-				<div class="container-fluid">
-					<div class="header-title">
-						FIMA
-						<span class="caption">Personal Data Manager</span>
-					</div>
-				</div>
-			</header>
-		</div>
-		<div class="container ng-cloak">
-			<div class="row row-menu">
+    </head>
+    <body ng-app="pdm" ng-controller="pdmAuthorizationsCtrl">
+        <div id="content" class="offcanvas-content clearfix">
+            <header>
+                <div class="container-fluid">
+                    <div class="header-title">
+                        FIMA
+                        <span class="caption">Personal Data Manager</span>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="container ng-cloak">
+            <div class="row row-menu">
                 <a class="btn" href="/index.html">Personal data</a>
                 <a class="btn" href="/request-data.html">Request data</a>
                 <a class="btn" href="/authorizations.html"><strong>Authorizations</strong> <span class="badge" id="authCount"></span></a>
 
                 <a class="btn pull-right" ng-click="resetStubs()">Reset</a>
-			</div>
+            </div>
 
             <div ng-if="authorizations.length == 0" class="alert alert-info">
                 You have no viewable authorizations.
             </div>
             <div ng-repeat="authorization in authorizations">
                 <h3>Authorization from {{ authorization.fromIdentity.description }}</h3>
- 				<div class="row" ng-repeat="attribute in authorization.attributes">
-					<div class="col-xs-4 col-md-3">
-						<label>{{ attribute.field.caption }}</label>
-					</div>
-					<div class="col-xs-8 col-md-9">
-						<span>{{ attribute.value }}</span>
-					</div>
-				</div>
+                 <div class="row" ng-repeat="attribute in authorization.attributes">
+                    <div class="col-xs-4 col-md-3">
+                        <label>{{ attribute.field.caption }}</label>
+                    </div>
+                    <div class="col-xs-8 col-md-9">
+                        <span>{{ attribute.value }}</span>
+                    </div>
+                </div>
             </div>
-		</div>
-		<script src="global/js/script.js"></script>
-	</body>
+        </div>
+        <script src="global/js/script.js"></script>
+    </body>
 </html>

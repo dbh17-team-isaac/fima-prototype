@@ -13,9 +13,9 @@ var config = {
 const app = express();
 app.get('/test', function (req, res) {
 
-	var web3 = new Web3(new Web3.providers.HttpProvider(config.parityUrl));
+    var web3 = new Web3(new Web3.providers.HttpProvider(config.parityUrl));
 
-	res.send('version: ' + web3.version.node);
+    res.send('version: ' + web3.version.node);
 
 });
 

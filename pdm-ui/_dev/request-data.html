@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Requests - FIMA PDM</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <head>
+        <title>Requests - FIMA PDM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-		<link rel="stylesheet" href="global/css/base.css"/>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="global/css/base.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-	</head>
-	<body ng-app="pdm" ng-controller="pdmRequestDataCtrl">
-		<div id="content" class="offcanvas-content clearfix">
-			<header>
-				<div class="container-fluid">
-					<div class="header-title">
-						FIMA
-						<span class="caption">Personal Data Manager</span>
-					</div>
-				</div>
-			</header>
-		</div>
-		<div class="container ng-cloak">
-			<div class="row row-menu">
-				<a class="btn" href="/index.html">Personal data</a>
-				<a class="btn" href="/request-data.html"><strong>Request data</strong></a>
-				<a class="btn" href="/authorizations.html">Authorizations <span class="badge" id="authCount"></span></a>
+    </head>
+    <body ng-app="pdm" ng-controller="pdmRequestDataCtrl">
+        <div id="content" class="offcanvas-content clearfix">
+            <header>
+                <div class="container-fluid">
+                    <div class="header-title">
+                        FIMA
+                        <span class="caption">Personal Data Manager</span>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="container ng-cloak">
+            <div class="row row-menu">
+                <a class="btn" href="/index.html">Personal data</a>
+                <a class="btn" href="/request-data.html"><strong>Request data</strong></a>
+                <a class="btn" href="/authorizations.html">Authorizations <span class="badge" id="authCount"></span></a>
 
                 <a class="btn pull-right" ng-click="resetStubs()">Reset</a>
-			</div>
-			<h3>Request data</h3>
-			<div class="row" ng-repeat="field in fields">
-				<div class="read-attribute">
-					<div class="col-xs-1 col-md-1">
-						<input type="checkbox" ng-model="field.request"/>
-					</div>
-					<div class="col-xs-4 col-md-11">
-						<span>{{ field.caption }}</span>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-1 col-md-1">
-					<button class="btn btn-primary" ng-click="requestData()">Request</button>
-				</div>
-				<div class="col-xs-4 col-md-11">
-					<p ng-show="requestSuccess" class="text-success"><i class="fa fa-check-circle" aria-hidden="true"></i></i> Request has been sent</p>
-				</div>
-			</div>
-		</div>
-		<script src="global/js/script.js"></script>
-	</body>
+            </div>
+            <h3>Request data</h3>
+            <div class="row" ng-repeat="field in fields">
+                <div class="read-attribute">
+                    <div class="col-xs-1 col-md-1">
+                        <input type="checkbox" ng-model="field.request"/>
+                    </div>
+                    <div class="col-xs-4 col-md-11">
+                        <span>{{ field.caption }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1 col-md-1">
+                    <button class="btn btn-primary" ng-click="requestData()">Request</button>
+                </div>
+                <div class="col-xs-4 col-md-11">
+                    <p ng-show="requestSuccess" class="text-success"><i class="fa fa-check-circle" aria-hidden="true"></i></i> Request has been sent</p>
+                </div>
+            </div>
+        </div>
+        <script src="global/js/script.js"></script>
+    </body>
 </html>
