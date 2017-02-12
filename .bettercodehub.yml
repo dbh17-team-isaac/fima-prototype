@@ -3,3 +3,5 @@ languages:
 - java
 - javascript
 - script
+exclude:
+-  .*/GsonProvider\.java
