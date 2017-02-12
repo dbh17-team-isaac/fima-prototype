@@ -29,83 +29,166 @@ module.exports = {
     },
     
     getAttributesForIdentity: function(identityId) {
-        return {
-            identityId: identityId,
-            attributes: [
-                {
-                    field: {
-                        UUID: "16a8053c-329e-41cb-ab9d-87c6f4ee2d6a",
-                        type: "string",
-                        caption: "Full name"
-                    },
-                    value: "Sem Koster"
-                },
-                {
-                    field: {
-                        UUID: "d4c7198c-9f0d-458d-8848-5e82d95d7da0",
-                        type: "string",
-                        caption: "Phone number"
-                    },
-                    value: "+31 6 55 55 55 55"
-                },
-                {
-                    field: {
-                        UUID: "eff69bda-0232-49b5-bc71-4f35def322b4",
-                        type: "string",
-                        caption: "Email address"
-                    },
-                    value: "sem.koster@company.tld"
-                },
-                {
-                    field: {
-                        UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
-                        type: "string",
-                        caption: "Birth date"
-                    },
-                    value: "1986-12-11"
-                },
-                {
-                    field: {
-                        UUID: "4182654f-72f3-4f88-87da-f569e3fff13a",
-                        type: "string",
-                        caption: "Birth place"
-                    },
-                    value: "Maastricht"
-                },
-                {
-                    field: {
-                        UUID: "71bb1295-a7ea-4a6d-bd03-be30de7156e2",
-                        type: "string",
-                        caption: "Burgerservicenummer"
-                    },
-                    value: "081365382"
-                },
-                {
-                    field: {
-                        UUID: "8eafa313-cb33-422b-b10e-3b74f0127d63",
-                        type: "string",
-                        caption: "Level of education"
-                    },
-                    value: "VWO"
-                },
-                {
-                    field: {
-                        UUID: "d9b8a106-f79c-4261-b583-e9509fd87760",
-                        type: "string",
-                        caption: "Blood type"
-                    },
-                    value: "AB+"
-                },
-                {
-                    field: {
-                        UUID: "84af3cb1-4f9d-4cf5-a48b-3767d308ff8f",
-                        type: "string",
-                        caption: "Last measured blood pressure"
-                    },
-                    value: "110 / 75"
-                },
-            ]
-        };
+        switch (identityId) {
+            case "1":
+                return {
+                    identityId: identityId,
+                    attributes: [
+                        {
+                            field: {
+                                UUID: "16a8053c-329e-41cb-ab9d-87c6f4ee2d6a",
+                                type: "string",
+                                caption: "Full name"
+                            },
+                            value: "Sem Koster"
+                        },
+                        {
+                            field: {
+                                UUID: "d4c7198c-9f0d-458d-8848-5e82d95d7da0",
+                                type: "string",
+                                caption: "Phone number"
+                            },
+                            value: "+31 6 55 55 55 55"
+                        },
+                        {
+                            field: {
+                                UUID: "eff69bda-0232-49b5-bc71-4f35def322b4",
+                                type: "string",
+                                caption: "Email address"
+                            },
+                            value: "sem.koster@company.tld"
+                        },
+                        {
+                            field: {
+                                UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
+                                type: "string",
+                                caption: "Birth date"
+                            },
+                            value: "1986-12-11"
+                        },
+                        {
+                            field: {
+                                UUID: "4182654f-72f3-4f88-87da-f569e3fff13a",
+                                type: "string",
+                                caption: "Birth place"
+                            },
+                            value: "Maastricht"
+                        },
+                        {
+                            field: {
+                                UUID: "71bb1295-a7ea-4a6d-bd03-be30de7156e2",
+                                type: "string",
+                                caption: "Burgerservicenummer"
+                            },
+                            value: "081365382"
+                        },
+                        {
+                            field: {
+                                UUID: "8eafa313-cb33-422b-b10e-3b74f0127d63",
+                                type: "string",
+                                caption: "Level of education"
+                            },
+                            value: "VWO"
+                        },
+                        {
+                            field: {
+                                UUID: "d9b8a106-f79c-4261-b583-e9509fd87760",
+                                type: "string",
+                                caption: "Blood type"
+                            },
+                            value: "AB+"
+                        },
+                        {
+                            field: {
+                                UUID: "84af3cb1-4f9d-4cf5-a48b-3767d308ff8f",
+                                type: "string",
+                                caption: "Last measured blood pressure"
+                            },
+                            value: "110 / 75"
+                        },
+                    ]
+                };
+                break;
+            case "2":
+            default:
+                return {
+                    identityId: identityId,
+                    attributes: [
+                        {
+                            field: {
+                                UUID: "16a8053c-329e-41cb-ab9d-87c6f4ee2d6a",
+                                type: "string",
+                                caption: "Full name"
+                            },
+                            value: "Sophie Veenstra"
+                        },
+                        {
+                            field: {
+                                UUID: "d4c7198c-9f0d-458d-8848-5e82d95d7da0",
+                                type: "string",
+                                caption: "Phone number"
+                            },
+                            value: "+31 6 44 44 44 44"
+                        },
+                        {
+                            field: {
+                                UUID: "eff69bda-0232-49b5-bc71-4f35def322b4",
+                                type: "string",
+                                caption: "Email address"
+                            },
+                            value: "sophie.veenstra@company.tld"
+                        },
+                        {
+                            field: {
+                                UUID: "7ff209a8-aa7e-45b0-9d0a-e5259ca73a4f",
+                                type: "string",
+                                caption: "Birth date"
+                            },
+                            value: "1954-02-22"
+                        },
+                        {
+                            field: {
+                                UUID: "4182654f-72f3-4f88-87da-f569e3fff13a",
+                                type: "string",
+                                caption: "Birth place"
+                            },
+                            value: "Nijmegen"
+                        },
+                        {
+                            field: {
+                                UUID: "71bb1295-a7ea-4a6d-bd03-be30de7156e2",
+                                type: "string",
+                                caption: "Burgerservicenummer"
+                            },
+                            value: "034637132"
+                        },
+                        {
+                            field: {
+                                UUID: "8eafa313-cb33-422b-b10e-3b74f0127d63",
+                                type: "string",
+                                caption: "Level of education"
+                            },
+                            value: "HAVO"
+                        },
+                        {
+                            field: {
+                                UUID: "d9b8a106-f79c-4261-b583-e9509fd87760",
+                                type: "string",
+                                caption: "Blood type"
+                            },
+                            value: "O-"
+                        },
+                        {
+                            field: {
+                                UUID: "84af3cb1-4f9d-4cf5-a48b-3767d308ff8f",
+                                type: "string",
+                                caption: "Last measured blood pressure"
+                            },
+                            value: "115 / 80"
+                        },
+                    ]
+                };
+        }
     },
 
     getAuthorizationsForIdentity: function(identityId) {
@@ -116,7 +199,7 @@ module.exports = {
             authorizations: [
                 {
                     fromIdentity: {
-                        identityId: 999,
+                        identityId: 1,
                         description: "Sem Koster"
                     },
                     subsnapId: "2d64dab5-4e5f-46ec-8613-3b18c099a5e9",
@@ -193,7 +276,7 @@ module.exports = {
                 requestId: 12345,
                 askIdentity: {
                     identityId: state[UC1_REQ_ASK_IDENTITY],
-                    description: "Sem Koster"
+                    description: "Sophie Veenstra"
                 },
                 requestFields: [
                     {
