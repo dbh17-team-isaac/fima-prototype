@@ -1,7 +1,9 @@
 {
     "name": "FimaChain",
     "engine": {
-        "instantSeal": null
+        "instantSeal": {
+            "params": {}
+        }
     },
     "params": {
         "accountStartNonce": "0x0",
