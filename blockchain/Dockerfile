@@ -1,4 +1,4 @@
-FROM parity/parity:v1.5.13
+FROM parity/parity:v1.6.8
 
 RUN ln -s /parity/parity /usr/local/bin/parity
 
