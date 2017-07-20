@@ -1,4 +1,4 @@
-FROM node:7.5
+FROM node:7.10.1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -14,4 +14,3 @@ RUN gulp
 
 EXPOSE 3000 8080
 CMD ["npm", "start"]
-
