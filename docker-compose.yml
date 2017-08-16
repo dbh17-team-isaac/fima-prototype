@@ -5,6 +5,8 @@ services:
     build: blockchain
     ports:
       - 8180:8180
+      - 8545:8545
+      - 8546:8546
   datastore-api:
     build: datastore-api
     ports:
