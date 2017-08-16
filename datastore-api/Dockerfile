@@ -17,3 +17,4 @@ RUN chmod +x /opt/jboss/wildfly/customization/execute.sh \
 RUN rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history
 
 CMD ["/opt/jboss/wildfly/start-wildfly-after-db.sh"]
+
