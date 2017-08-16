@@ -5,12 +5,13 @@ WORKDIR /usr/src/app
 
 # NodeJS dependencies
 COPY package.json /usr/src/app
-RUN npm install
+RUN npm install --silent
 
 # Gulp run
-RUN npm install -g gulp
+RUN npm install -g --silent gulp
 COPY . /usr/src/app
 RUN gulp
 
 EXPOSE 3000 8080
 CMD ["npm", "start"]
+
