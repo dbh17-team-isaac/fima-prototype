@@ -46,3 +46,4 @@ api(httpApp, wsApp, web3, contractsRegistry);
 // Listen on configured ports
 httpApp.listen(config.listenPort);
 wsApp.listen(config.websocketPort);
+

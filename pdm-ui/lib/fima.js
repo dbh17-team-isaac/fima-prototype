@@ -28,7 +28,7 @@ FIMA.prototype.getAuthorizationTrackerContract = function(addr) {
 
 FIMA.prototype.getContract = function(addr, ABIPath) {
     console.log('Obtaining contract for addr: ' + addr + '; ABI: ' + ABIPath);
-    
+
     let abi = fs.readFileSync(ABIPath, 'utf8');
     let abiArray = JSON.parse(abi);
     let contract = this.web3.eth.contract(abiArray);
@@ -46,3 +46,4 @@ FIMA.prototype.deployContract = function(bytecodePath, ABIPath) {
     console.log('Deployed new contract with hash: ' + contractInstance.transactionHash);
     return contractInstance;
 };
+
