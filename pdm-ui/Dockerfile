@@ -5,10 +5,10 @@ WORKDIR /usr/src/app
 
 # NodeJS dependencies
 COPY package.json /usr/src/app
-RUN npm install --silent
+RUN npm install --loglevel error
 
 # Gulp run
-RUN npm install -g --silent gulp
+RUN npm install -g --loglevel error gulp
 COPY . /usr/src/app
 RUN gulp
 
