@@ -47,3 +47,14 @@ FIMA.prototype.deployContract = function(bytecodePath, ABIPath) {
     return contractInstance;
 };
 
+FIMA.prototype.numberToBytes32 = function(number) {
+    let numberAsHex = Number(number).toString(16);
+    let numberOfZeros = 64 - numberAsHex.length;
+
+    return "0x" + "0".repeat(numberOfZeros) + numberAsHex;
+};
+
+FIMA.prototype.bytes32ToNumber = function(bytes) {
+    var hex = String(bytes).slice(-8);
+    return parseInt(hex, 16);
+};

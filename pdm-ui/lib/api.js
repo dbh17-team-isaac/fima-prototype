@@ -1,33 +1,13 @@
 let FIMA = require('./fima.js');
 
-String.prototype.hexEncode = function() {
-    var hex, i;
-
-    var result = "";
-    for (i = 0; i < this.length; i++) {
-        hex = this.charCodeAt(i).toString(16);
-        result += ("000"+hex).slice(-4);
-    }
-
-    return result;
-};
-
 /**
  * PDM API endpoint implementations.
  */
-module.exports = function(app, wsApp, web3, contractsRegistry) {
+let API = module.exports = function(app, wsApp, web3, contractsRegistry) {
+    this.wsByIdentity = {};
+
     var stubs = require('./api-stubs.js');
-    var wsByIdentity = {};
-
-    // Websocket send helper
-    function sendWS(identityId, msg) {
-        identityId += '';
-
-        if (identityId in wsByIdentity) {
-            console.log('Notifying identity ' + identityId + ' via WS');
-            wsByIdentity[identityId].send(msg);
-        }
-    }
+    var self = this;
 
     // Send anti-caching headers for all API endpoints
     app.get('/api/v1/*', function(req, res, next) {
@@ -65,7 +45,7 @@ module.exports = function(app, wsApp, web3, contractsRegistry) {
     wsApp.ws('/api/v1/identity/:identityId/events', function(ws, req) {
         var identityId = req.params.identityId + '';
         console.log('New webservice connection for identity: ' + identityId);
-        wsByIdentity[identityId] = ws;
+        self.wsByIdentity[identityId] = ws;
     });
 
     // API: retrieve identity requests
@@ -82,22 +62,25 @@ module.exports = function(app, wsApp, web3, contractsRegistry) {
         var identityId = req.params.identityId;
         var requestId = req.params.requestId;
 
-        var response = stubs.confirmRequest(identityId, requestId);
-        
+        var request = stubs.getRequestById(requestId);
+        var response = stubs.confirmRequest(identityId, request.requestId);
+
+        // TODO: create subsnap
+
         // Put the authorization on the blockchain
         var identityAddress = "0x0067af5b87da32b14ff58af203cf3d4684319c5c";
         var fima = new FIMA(identityAddress, web3);
         var authContract = fima.getAuthorizationTrackerContract(contractsRegistry.authorizationTracker.address);
 
-        var granter = "0x" + (identityId + '').hexEncode();
-        var grantee = "0x1234abcd";
+        var granter = fima.numberToBytes32(identityId);
+        var grantee = fima.numberToBytes32(request.askIdentity.identityId);
         var subsnapID = "0xabcd1234";
 
         authContract.authorize(granter, grantee, subsnapID);
 
-        // Notify the asker
-        var request = stubs.getRequestById(requestId);
-        sendWS(request.askIdentity.identityId, 'AuthorizationCreated');
+        // // Notify the asker
+        // var request = stubs.getRequestById(requestId);
+        // self.sendWebsocketMessage(request.askIdentity.identityId, 'AuthorizationCreated');
 
         res.json(response);
     });
@@ -109,9 +92,9 @@ module.exports = function(app, wsApp, web3, contractsRegistry) {
         var requestFields = req.body.requestFields;
 
         var response = stubs.createRequest(askIdentityId, targetIdentityId, requestFields);
-        
+
         // Notify target
-        sendWS(targetIdentityId, 'RequestCreated');
+        self.sendWebsocketMessage(targetIdentityId, 'RequestCreated');
 
         res.json(response);
     });
@@ -121,4 +104,13 @@ module.exports = function(app, wsApp, web3, contractsRegistry) {
         var response = stubs.reset();
         res.json(response);
     });
+};
+
+API.prototype.sendWebsocketMessage = function(identityId, message) {
+    identityId += '';
+
+    if (identityId in this.wsByIdentity) {
+        console.log('Notifying identity ' + identityId + ' via WS');
+        this.wsByIdentity[identityId].send(message);
+    }
 };

@@ -40,10 +40,22 @@ var wsApp = express();
 var expressWs = require('express-ws')(wsApp);
 
 // Enable API
-var api = require('./lib/api.js');
-api(httpApp, wsApp, web3, contractsRegistry);
+var API = require('./lib/api.js');
+var api = new API(httpApp, wsApp, web3, contractsRegistry);
 
 // Listen on configured ports
 httpApp.listen(config.listenPort);
 wsApp.listen(config.websocketPort);
 
+// ------------------
+// Contract listeners
+// ------------------
+
+var authContract = fima.getAuthorizationTrackerContract(contractsRegistry.authorizationTracker.address);
+
+authContract.Authorization(function(error, result) {
+    var granteeId = fima.bytes32ToNumber(result.args.encryptedGrantee);
+    console.log('Authorization received for grantee ' + granteeId);
+
+    api.sendWebsocketMessage(granteeId, 'AuthorizationCreated');
+});
