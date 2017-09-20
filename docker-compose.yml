@@ -1,14 +1,16 @@
-version: "2"
+version: "3.2"
 
 services:
   blockchain:
     build: blockchain
+    image: ${IMAGE_REGISTRY}blockchain
     ports:
       - 8180:8180
       - 8545:8545
       - 8546:8546
   datastore-api:
     build: datastore-api
+    image: ${IMAGE_REGISTRY}datastore-api
     ports:
       - 8280:8080
     volumes:
@@ -24,12 +26,14 @@ services:
       - 3306:3306
   idp_implementor:
     build: idp-implementor
+    image: ${IMAGE_REGISTRY}idp-implementor
     ports:
       - 8380:8080
     links:
       - blockchain
   pdm_ui:
     build: pdm-ui
+    image: ${IMAGE_REGISTRY}pdm-ui
     links:
       - blockchain
       - datastore-api

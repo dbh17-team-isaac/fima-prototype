@@ -6,3 +6,4 @@ target/
 datastore-api/docker/deployments
 pdm-ui/public/
 node_modules/
+.env
